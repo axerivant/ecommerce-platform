@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation'
 	import { productsAddedToCart } from '../store'
 
-	export let data
+	export let data: any
 	console.log(data)
 	// get stripe payment link from server
 </script>
