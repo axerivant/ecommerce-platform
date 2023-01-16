@@ -1,13 +1,17 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
-// and what to do when importing types
-declare global {
-	namespace App {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface Platform {}
-	}
+interface StoreData {
+	name: string
+	ownner: Owner
+	products: Product[]
 }
 
-export {};
+interface Owner {
+	name: string
+	uid: string
+}
+
+interface Product {
+	name: string
+	imageUrl: string
+	description: string
+	price: number
+}
