@@ -1,34 +1,20 @@
 <script lang="ts">
-	import ProductInfoModal from './ProductInfoModal.svelte'
+	import { viewingProductInfo } from './store'
 
 	export let product: any
 
-	let isHovering = false
-	const toggleHover = () => (isHovering = !isHovering)
-
-	let isShowingProductInfo = false
-	const showProductInfo = () => (isShowingProductInfo = true)
+	const showProductInfo = () => viewingProductInfo.set(product)
 </script>
 
-<button
-	class="h-72 w-72 rounded overflow-hidden"
-	on:click={showProductInfo}
-	on:mouseenter={toggleHover}
-	on:mouseleave={toggleHover}
->
+<button class="h-72 w-72 rounded overflow-hidden" on:click={showProductInfo}>
 	<div
-		class:overlay={isHovering}
 		class="overlay absolute h-72 w-72 rounded bg-transparent transition-all"
 	/>
 	<img class="h-full w-full object-cover" src={product.imageUrl} alt="" />
 </button>
 
-{#if isShowingProductInfo}
-	<ProductInfoModal />
-{/if}
-
 <style>
-	.overlay {
+	.overlay:hover {
 		background: linear-gradient(
 			180deg,
 			rgba(25, 255, 21, 0) 0%,

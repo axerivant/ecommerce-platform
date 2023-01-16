@@ -1,7 +1,11 @@
 <script lang="ts">
 	import StoreData from './data.json'
 	import Product from './Product.svelte'
+	import ProductInfoModal from './ProductInfoModal.svelte'
 </script>
+
+<!-- modals /-->
+<ProductInfoModal />
 
 <main class="px-24 py-12 w-screen min-h-screen flex flex-col gap-12">
 	<div class="flex justify-between">
